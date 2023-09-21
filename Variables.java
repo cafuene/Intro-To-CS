@@ -1,4 +1,4 @@
-public class Vars {
+public class Variables {
     public static void main(String[] args) {
 
    // This is a comment
