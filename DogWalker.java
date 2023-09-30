@@ -16,38 +16,32 @@
  *
  */
 public class DogWalker {
-
     public static void main(String[] args) {
+
 
         int n = Integer.parseInt(args[0]);
         int x = 0;
         int y = 0;
-        double direction = 0.0;
 
-        for (int i = 0; i <= n; i++) {
-            System.out.println("(" + x +"," + y +")");
+        System.out.println("Step 0: (0, 0)");
 
-            direction = Math.random();
-
-            if(direction <= 0.25){
-                y++;
-
-            }else if(direction >= 0.26 && direction <= 0.5){
-                x++;
-
-            }else if(direction >= 0.51 && direction <= 0.75){
-                y--;
-
-            }else if(direction >= 0.76){
-                x--;
+        for (int step = 1; step <= n; step++) {
+            double random = Math.random();
+            if (random < 0.25) {
+                x++; // move east
+            } else if (random < 0.5) {
+                x--; // move west
+            } else if (random < 0.75) {
+                y++; // move north
+            } else {
+                y--; // move south
             }
 
-            
-                
-            }
-            double distance = Math.pow(x, 2) + Math.pow(y, 2);
-           System.out.println("Squared distance =" + distance);
+            System.out.println("Step " + step + ": (" + x + ", " + y + ")");
         }
-			   
+
+        double squaredDistance = x * x + y * y;
+        System.out.println("Squared Euclidean distance from the origin: " + squaredDistance);
     }
+}
 
